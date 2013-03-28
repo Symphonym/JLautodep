@@ -68,7 +68,7 @@ public:
 
 
 	// Parse inputFiles, exceptions, extensions, outputFile and loggingDisplay through command line
-	// Returns true if everything worked as intented
+	// Returns true if arguments to the generator was received
 	bool parseArgs(int argc, const char *args[]);
 };
 

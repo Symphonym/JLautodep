@@ -222,7 +222,7 @@ bool MakeDependencyGenerator::parseArgs(int argc, const char *args[])
 {
 	if(argc <= 1)
 	{
-		std::cout << "GNU Make Dependency Generator by Jakob Larsson" << std::endl;
+		std::cout << "JLautodep, Make Dependency Generator by Jakob Larsson" << std::endl;
 		return false;
 	}
 
@@ -270,19 +270,51 @@ bool MakeDependencyGenerator::parseArgs(int argc, const char *args[])
 		}
 		else if(inputArg == "--help")
 		{
-			std::cout << "GNU Make Dependency Generator by Jakob Larsson" << std::endl << std::endl;
-			std::cout << "-i <files> Input files to the generator" << std::endl;
-			std::cout << "-E <exceptions> Dependency exceptions. A dependency matching a part of the exception is discarded." << std::endl;
-			std::cout << "-e <extensions> File extensions used for each input file" << std::endl;
-			std::cout << "-o <file> Output file" << std::endl;
-			std::cout << "-m <file> Output to Makefile, placing output between two tags in the Makefile" << std::endl;
-			std::cout << "--makeStart=<tag> Sets the START tag when outputting to Makefiles. Default value is \"#JL Make Dependency Generator START\"" << std::endl;
-			std::cout << "--makeEnd=<tag> Sets the END tag when outputting to Makefiles. Default value is \"#JL Make Dependency Generator END\"" << std::endl;
-			std::cout << "--empty-targets Generates empty targets as well, meaning targets with no valid dependencies." << std::endl;
-			std::cout << "--self-dependency Allows targets to have their own header files as a dependency." << std::endl;
-			std::cout << "--display-logging Enables logging display as the generator runs" << std::endl;
-			std::cout << "--help Displays a list of acceptable arguments and what they do" << std::endl;
-			inputType = -1;
+			std::vector<std::string> helpLog = { 
+			"JLautodep, Make Dependency Generator by Jakob Larsson",
+			"",
+			"	required arguments:",
+			"		-i <files>",
+			"				Input files to the generator, file extension",
+			"				is discarded. Use -e to set custom extensions",
+			"		-o <file>",
+			"				Write to output file <file>",
+			"		-m <file>",
+			"				Alternative to -o, insert output to makefile",
+			"				<file> using tags in the makefile",
+			"",
+			"	optional arguments:",
+			"		-e <extensions>",
+			"				File extensions used for each input file",
+			"		-E <exceptions>",
+			"				Include directive exceptions, a dependency",
+			"				matching a part of the exception is discarded",
+			"		--makeStart=<tag>",
+			"				Sets the START tag when outputting to Makefiles.",
+			"				Default: #JL Make Depedency Generator START",
+			"		--makeEnd=<tag>",
+			"				Sets the END tag when outputting to Makefiles.",
+			"				Default: #JL Make Depedency Generator END",
+			"		--empty-targets",
+			"				Allows empty targets to be generated, meaning",
+			"				targets with no dependencies",
+			"		--self-dependency",
+			"				Allows targets to have their own header files as",
+			"				a dependency",
+			"		--display-logging",
+			"				Enables logging, writing progress reports to the",
+			"				console as the generator runs",
+			"		--help",
+			"				Displays a list of accepted arguments and what",
+			"				they do"};
+
+			for(std::size_t i = 0; i < helpLog.size(); i++)
+				std::cout << helpLog[i] << std::endl;
+			
+			// Don't allow the generator to be run when help log is requested
+			// because it wouldn't make sense to run the help command alongside
+			// with generator commands.
+			return false;
 		}
 		else
 		{
