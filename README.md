@@ -38,10 +38,10 @@ The command-line arguments supported by JLautodep are shown below, this help log
 							matching a part of the exception is discarded
 					--makeStart=<tag>
 							Sets the START tag when outputting to Makefiles.
-							Default: #JL Make Depedency Generator START
+							Default: #JLautodep START
 					--makeEnd=<tag>
 							Sets the END tag when outputting to Makefiles.
-							Default: #JL Make Depedency Generator END
+							Default: #JLautodep END
 					--empty-targets
 							Allows empty targets to be generated, meaning
 							targets with no dependencies

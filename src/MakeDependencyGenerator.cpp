@@ -9,8 +9,8 @@ MakeDependencyGenerator::MakeDependencyGenerator() :
 	m_emptyTargets(false),
 	m_selfDependency(false),
 	m_outputFile(""),
-	m_makeStart("#JL Make Dependency START"),
-	m_makeEnd("#JL Make Dependency END")
+	m_makeStart("#JLautodep START"),
+	m_makeEnd("#JLautodep END")
 {
 
 }
@@ -291,10 +291,10 @@ bool MakeDependencyGenerator::parseArgs(int argc, const char *args[])
 			"				matching a part of the exception is discarded",
 			"		--makeStart=<tag>",
 			"				Sets the START tag when outputting to Makefiles.",
-			"				Default: #JL Make Depedency Generator START",
+			"				Default value: #JLautodep START",
 			"		--makeEnd=<tag>",
 			"				Sets the END tag when outputting to Makefiles.",
-			"				Default: #JL Make Depedency Generator END",
+			"				Default value: #JLautodep END",
 			"		--empty-targets",
 			"				Allows empty targets to be generated, meaning",
 			"				targets with no dependencies",
