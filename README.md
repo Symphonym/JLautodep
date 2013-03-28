@@ -12,8 +12,8 @@ dependency list.
 
 Usage
 -----
-The optimal way to use to would be to use a wildcard in a makefile getting all the files, then having
-a target to run JLautodep with all the files. Outputting to an external file or inserting directly to the
+The optimal way to use JLautodep to would be to use a wildcard in a makefile getting all the files, then having
+a target to run JLautodep with all the files as input. Outputting to an external file or inserting directly to the
 makefile.
 
 The command-line arguments supported by JLautodep are shown below, this help log can also be seen by running "JLautolog --help"
