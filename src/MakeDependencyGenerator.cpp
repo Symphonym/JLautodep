@@ -70,6 +70,7 @@ void MakeDependencyGenerator::runScanner()
 			{
 
 				dependency = "";
+				isQuoteInclude = true;
 
 				if(line.find("#include") != std::string::npos)
 				{
@@ -95,7 +96,7 @@ void MakeDependencyGenerator::runScanner()
 
 						for(std::size_t ex = 0; ex < m_exceptions.size(); ex++)
 							if(includeDirective.find(m_exceptions[ex]) != std::string::npos)
-								dependency = "";
+								dependency = ""; 
 					}
 
 
