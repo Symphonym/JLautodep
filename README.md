@@ -59,6 +59,7 @@ Example output
 ---------
 I tried the JLautodep on a school game project of mine by calling the following target in the project's
 makefile:
+
 			.PHONY: autodep
 			autodep:
 				./JLautodep -i ${SRCS} -o output.txt -E "<" --empty-targets
